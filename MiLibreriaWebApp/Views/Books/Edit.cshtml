@@ -1,0 +1,46 @@
+@model MiLibreriaWebApp.Models.Book
+
+@{
+    ViewData["Title"] = "Edit Book";
+}
+
+<h1>Edit Book</h1>
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Author" class="control-label"></label>
+        <input asp-for="Author" class="form-control" />
+        <span asp-validation-for="Author" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CountryId" class="control-label"></label>
+        <select asp-for="CountryId" class="form-control" asp-items="ViewBag.CountryId">
+            <option value="">Select Country</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="GenreId" class="control-label"></label>
+        <select asp-for="GenreId" class="form-control" asp-items="ViewBag.GenreId">
+            <option value="">Select Genre</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="ISBN" class="control-label"></label>
+        <input asp-for="ISBN" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ReadingStatus" class="control-label"></label>
+        <select asp-for="ReadingStatus" class="form-control" asp-items="ViewBag.ReadingStatus">
+            <option value="">Select Status</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</form>

@@ -1,0 +1,27 @@
+@model MiLibreriaWebApp.Models.Book
+
+@{
+    ViewData["Title"] = "Book Details";
+}
+
+<h1>Book Details</h1>
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">Title</dt>
+        <dd class = "col-sm-10">@Model.Title</dd>
+        <dt class = "col-sm-2">Author</dt>
+        <dd class = "col-sm-10">@Model.Author</dd>
+    <dt class = "col-sm-2">Country</dt>
+    <dd class = "col-sm-10">@Model.Country?.Name</dd>
+    <dt class = "col-sm-2">Genre</dt>
+    <dd class = "col-sm-10">@Model.Genre?.Name</dd>
+        <dt class = "col-sm-2">ISBN</dt>
+        <dd class = "col-sm-10">@Model.ISBN</dd>
+    <dt class = "col-sm-2">Reading Status</dt>
+    <dd class = "col-sm-10">@Model.ReadingStatus</dd>
+    </dl>
+</div>
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</p>

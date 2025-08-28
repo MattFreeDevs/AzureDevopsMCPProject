@@ -1,0 +1,32 @@
+@model IEnumerable<MiLibreriaWebApp.Models.Genre>
+
+@{
+    ViewData["Title"] = "Genres List";
+}
+
+<h1>Genres List</h1>
+<p>
+    <a asp-action="Create">Add New Genre</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>
+                <form asp-action="Delete" method="post" style="display:inline">
+                    <input type="hidden" name="id" value="@item.Id" />
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
